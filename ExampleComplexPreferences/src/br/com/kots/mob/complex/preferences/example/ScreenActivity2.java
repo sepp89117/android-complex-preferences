@@ -22,9 +22,12 @@ public class ScreenActivity2 extends Activity {
 		listView = (ListView) findViewById(R.id.listView1);
 		
 		ComplexPreferences complexPreferences = ComplexPreferences.getComplexPreferences(this, "myPrefs", MODE_PRIVATE);
-		User user = complexPreferences.getObject("user", User.class);
 		
-		ListUserComplexPref complexObject = complexPreferences.getObject("list", ListUserComplexPref.class);
+		Type userType = new TypeToken<User>(){}.getType();
+		User user = complexPreferences.getObject("user", userType);
+		
+		Type listUserType = new TypeToken<ListUserComplexPref>(){}.getType();
+		ListUserComplexPref complexObject = complexPreferences.getObject("list", listUserType);
 		
 		String[] arrayUsers = new String[complexObject.users.size()];
 		
