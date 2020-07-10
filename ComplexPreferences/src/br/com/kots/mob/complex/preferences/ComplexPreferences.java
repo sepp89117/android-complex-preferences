@@ -53,7 +53,7 @@ public class ComplexPreferences {
 		editor.commit();
 	}
 
-	public <T> T getObject(String key, Class<T> a) {
+	public <T> T getObject(String key, Type a) {
 	
 		String gson = preferences.getString(key, null);
 		if (gson == null) {
